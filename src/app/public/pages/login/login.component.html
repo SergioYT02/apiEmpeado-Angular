@@ -1,0 +1,94 @@
+<div >
+    
+  <div class="card shadow" style="margin-top: 3em;">
+    <div class="card-body" >
+      <div class="row mt-5 d-flex justify-content-between align-items-center">
+        <div class="col-md-4 mx-auto">
+          <h5 class="text-primary text-center">
+            <i class="bi bi-car-front"></i> Login
+          </h5>
+          <form [formGroup]="loginForm" class="w-75 mx-auto mt-5">
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                [ngClass]="[loginForm.get('email')?.errors?.['required'] ||
+                loginForm.get('email')?.errors?.['email']
+                ? 'is-invalid' : 'is-valid' ]"
+                placeholder="Email"
+                formControlName="email"
+              />
+
+              <label for="email" class="form-label"
+                ><i class="bi bi-person-circle"></i> Email</label
+              >
+              <div
+                *ngIf="!loginForm.get('email')?.errors?.['required']&&!loginForm.get('email')?.errors?.['email']"
+                class="valid-feedback"
+              >
+                Looks good!
+              </div>
+              <div
+                *ngIf="loginForm.get('email')?.errors?.['required']"
+                class="form-text text-danger"
+              >
+                Debe llenar el campo
+              </div>
+              <div
+                *ngIf="loginForm.get('email')?.errors?.['email']"
+                class="form-text text-danger"
+              >
+                Debe ser un correo valido
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                id="password"
+                [ngClass]="[loginForm.get('password')?.errors?.['required'] ||
+                loginForm.get('password')?.errors?.['minlength']
+                ? 'is-invalid' : 'is-valid' ]"
+                class="form-control"
+                placeholder="Password"
+                formControlName="password"
+              />
+
+              <label for="password" class="form-label"
+                ><i class="bi bi-eye"></i> Password</label
+              >
+              <div
+                *ngIf="!loginForm.get('password')?.errors?.['required']&&!loginForm.get('password')?.errors?.['minlength']"
+                class="valid-feedback"
+              >
+                Looks good!
+              </div>
+              <div
+                *ngIf="loginForm.get('password')?.errors?.['required']"
+                class="form-text text-danger"
+              >
+                Contraseña requerida
+              </div>
+              <div
+                *ngIf="loginForm.get('password')?.errors?.['minlength']"
+                class="form-text text-danger"
+              >
+                Minimo 5 caracteres
+              </div>
+            </div>
+
+            <button
+              type="button"
+              (click)="login()"
+              [disabled]="!loginForm.valid"
+              class="btn btn-sm btn-outline-info"
+            >
+              Logearse
+            </button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
