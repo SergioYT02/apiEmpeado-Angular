@@ -1,11 +1,13 @@
-<div class="mt-5 w-75 mx-auto">
+<div class="mt-5 w-70 mx-auto">
   <div class="w-50 mx-auto">
+    <div class="card">
+      <div class="card-body">
     <form [formGroup]="loginForm" (submit)="crear(loginForm.value)">
-      <h2 class="text-center">Crear trabajador</h2>
+      <h2 class="text-center">Resgitrar trabajador</h2>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Nombre </label>
+        <label for="exampleInputEmail1" class="form-label"> <strong>Nombres: </strong></label>
         <input
-          formControlName="nombre"
+          formControlName="nombres..."
           type="text"
           class="form-control"
           id="exampleInputEmail1"
@@ -25,11 +27,11 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Apellido </label>
+        <label for="exampleInputEmail1" class="form-label"><strong>Apellidos:</strong> </label>
         <input
           type="text"
           class="form-control"
-          formControlName="apellido"
+          formControlName="apellidos..."
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
         />
@@ -48,10 +50,10 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Direccion </label>
+        <label for="exampleInputEmail1" class="form-label"><strong>Dirección: </strong></label>
         <input
           type="text"
-          formControlName="direccion"
+          formControlName="dirección..."
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
@@ -72,7 +74,7 @@
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label"
-          >Fecha de nacimiento
+          ><strong>Fecha de nacimiento:</strong>
         </label>
         <input
           type="date"
@@ -96,7 +98,7 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <label for="exampleInputEmail1" class="form-label"><strong>Email:</strong></label>
         <input
           type="text"
           class="form-control"
@@ -124,7 +126,7 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <label for="exampleInputPassword1" class="form-label"> <strong>Password:</strong></label>
         <input
           type="password"
           class="form-control"
@@ -159,7 +161,7 @@
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label"
-          >Fecha contratacion</label
+          ><strong>Fecha contratación:</strong></label
         >
         <input
           formControlName="fecha_contratacion"
@@ -183,7 +185,7 @@
       </div>
 
       <div class="mb-3" *ngIf="roles">
-        <label>Rol</label>
+        <label><strong>Rol:</strong></label>
         <select formControlName="rol_id" class="form-select" name="" id="">
           <option [value]="rol.id" *ngFor="let rol of roles"> {{rol.nombre_del_rol}} </option>
         </select>
@@ -202,7 +204,7 @@
         </div>
       </div>
       <div class="mb-3" *ngIf="puestos">
-        <label>Puesto</label>
+        <label><strong>Puesto</strong></label>
         <select formControlName="puesto_id" class="form-select" name="" id="">
           <option [value]="puesto.id" *ngFor="let puesto of puestos"> {{puesto.puesto}} </option>
         </select>
@@ -221,7 +223,9 @@
       </div>
       </div>
 
-      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">crear trabajador</button>
+      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Crear trabajador</button>
     </form>
   </div>
+</div>
+</div>
 </div>

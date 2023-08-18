@@ -1,24 +1,38 @@
-<div class="w-75 mx-auto">
-    <div *ngIf="trabajadores.length>0">
-        <input class="form-control" type="search" [(ngModel)]="term" placeholder="Buscar" placeholder="Buscar por nombre o apellido o puesto">
-        <div class="btn-search">
+<section class="vh-100" >
+  <div class="container py-5 h-100">
+<div class="container-fluid d-flex flex-column min-vh-100">
+<div class="w-75 mx-auto"><br>
+    <div class=" container ">
+        <div class="input-group mb-3 rounded-end " *ngIf="trabajadores.length>0" >
+          <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg> </span>
+        <input class="form-control" type="search" [(ngModel)]="term" placeholder="Buscar" placeholder="Buscar por nombre, apellido o puesto" >
+       
+        <div class="btn-search rounded-end ">
           <i class="input-icon uil uil-search-alt"></i>
         </div>
-      </div>
-  <table class="table">
+        
+      </div><br>
+    </div>
+    
+      <div class="row align-items-start">
+        <div class=" table-responsive border-dark border p-3" style="margin: 0px; padding: 0px;">
+            <table class="table ">  
+                <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre y apellidos</th>
-        <th scope="col">Nombre puesto</th>
-        <th scope="col">Salario</th>
-        <th scope="col" class="text-center">Registros</th>
+        <th scope="col" class="bg-primary bg-opacity-50 text-center">#</th>
+        <th scope="col" class="bg-primary bg-opacity-50 text-center">Nombres y apellidos</th>
+        <th scope="col" class="bg-primary bg-opacity-50 ">Puesto</th>
+        <th scope="col" class="bg-primary bg-opacity-50 text-center">Salario</th>
+        <th scope="col" class="bg-primary bg-opacity-50 text-center">Registros</th>
      
       </tr>
     </thead>
-    <tbody *ngIf="trabajadores.length>0">
+    <tbody  *ngIf="trabajadores.length>0">
       <tr *ngFor="let trabajador of trabajadores|filter:term" class="text-center">
-        <th scope="row">{{ trabajador.id }}</th>
+        <th scope="row" >{{ trabajador.id }}</th>
         <td>
           {{ trabajador.user.nombre | titlecase
           }} {{ trabajador.user.apellido | titlecase }}
@@ -27,12 +41,12 @@
           {{ trabajador.puesto.puesto | titlecase }}
         </td>
         <td>{{ trabajador.puesto.salario | currency }}</td>
-        <table  class="table" >
+        <table  class="table table-bordered" >
             <thead>
-                <th scope="col">Hora Entrada</th>
-                <th scope="col">Hora Salida</th>
-                <th scope="col">Hora trabajadas</th>
-                <th scope="col">Hora extras</th>
+                <th scope="col" class="bg-primary bg-opacity-50 text-center">Hora Entrada</th>
+                <th scope="col" class="bg-primary bg-opacity-50  text-center">Hora Salida</th>
+                <th scope="col" class="bg-primary bg-opacity-50  text-center">Horas trabajadas</th>
+                <th scope="col" class="bg-primary bg-opacity-50  text-center">Horas extras</th>
             </thead>
             <tbody *ngIf="trabajador.asistencia_registros.length>0">
                 <tr *ngFor="let trabajador of trabajador.asistencia_registros" class="text-center">
@@ -64,12 +78,12 @@
           {{ trabajadores.empleados.puesto.puesto | titlecase }}
         </td>
         <td>{{ trabajadores.empleados.puesto.salario | currency }}</td>
-        <table  class="table" >
+        <table  class="table table-bordered" >
             <thead>
-                <th scope="col">Hora Entrada</th>
+                <th  scope="col">Hora Entrada</th>
                 <th scope="col">Hora Salida</th>
-                <th scope="col">Hora trabajadas</th>
-                <th scope="col">Hora extras</th>
+                <th scope="col">Horas trabajadas</th>
+                <th scope="col">Horas extras</th>
             </thead>
             <tbody *ngIf="trabajadores.empleados.asistencia_registros.length>0">
                 <tr *ngFor="let trabajador of trabajadores.empleados.asistencia_registros" class="text-center">
@@ -90,5 +104,15 @@
         </table>
       </tr>
     </tbody>
-  </table>
+  </table></table>
 </div>
+</div>
+</div><br><footer>
+  <p>&copy; 2023 Empresa de Gestión de Empleados. Todos los derechos reservados.</p>
+</footer>
+</div>
+</div>
+</section>
+
+
+

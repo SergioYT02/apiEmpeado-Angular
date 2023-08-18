@@ -1,84 +1,98 @@
-<div class="mt-5 w-75 mx-auto">
+<section class="vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="mt-5 w-75 mx-auto">
   <div class="w-50 mx-auto">
-    <form [formGroup]="loginForm" (submit)="crear(loginForm.value)">
-      <h2 class="text-center">Crear Registro</h2>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Empleado </label>
-        <select formControlName="empleado_id" class="form-select" name="" id="">
-          <option
-            [value]="trabajador?.empleados?.id"
-            *ngFor="let trabajador of trabajadores"
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="loginForm" (submit)="crear(loginForm.value)">
+        <h2 class="text-center">Registro Horas de Trabajo</h2>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><strong>Empleado:</strong></label>
+          <select formControlName="empleado_id" class="form-select" name="" id="">
+            <option
+              [value]="trabajador?.empleados?.id"
+              *ngFor="let trabajador of trabajadores"
+            >
+              {{ trabajador.nombre | titlecase}} - {{trabajador.apellido | titlecase}}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              loginForm.get('empleado_id')?.invalid &&
+              loginForm.get('empleado_id')?.touched
+            "
           >
-            {{ trabajador.nombre |titlecase}} - {{trabajador.apellido|titlecase}}
-          </option>
-        </select>
-        <div
-          *ngIf="
-            loginForm.get('empleado_id')?.invalid &&
-            loginForm.get('empleado_id')?.touched
-          "
-        >
-          <span
-            *ngIf="loginForm.get('empleado_id')?.hasError('required')"
-            style="color: #f39c12"
-          >
-            campo Requerido.</span
-          >
+            <span
+              *ngIf="loginForm.get('empleado_id')?.hasError('required')"
+              style="color: #ffbf29"
+            >
+              Campo requerido.</span
+            >
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Hora entrada </label>
-        <input
-          type="datetime-local"
-          class="form-control"
-          formControlName="hora_entrada"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-        <div
-          *ngIf="
-            loginForm.get('hora_entrada')?.invalid &&
-            loginForm.get('hora_entrada')?.touched
-          "
-        >
-          <span
-            *ngIf="loginForm.get('hora_entrada')?.hasError('required')"
-            style="color: #f39c12"
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><strong>Hora entrada:</strong> </label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            formControlName="hora_entrada"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div
+            *ngIf="
+              loginForm.get('hora_entrada')?.invalid &&
+              loginForm.get('hora_entrada')?.touched
+            "
           >
-            campo Requerido.</span
-          >
+            <span
+              *ngIf="loginForm.get('hora_entrada')?.hasError('required')"
+              style="color: #ffbf29"
+            >
+              Campo requerido.</span
+              >
+          </div>
         </div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Hora salida </label>
-        <input
-          type="datetime-local"
-          class="form-control"
-          formControlName="hora_salida"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-        <div
-          *ngIf="
-            loginForm.get('hora_salida')?.invalid &&
-            loginForm.get('hora_salida')?.touched
-          "
-        >
-          <span
-            *ngIf="loginForm.get('hora_salida')?.hasError('required')"
-            style="color: #f39c12"
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"><strong>Hora salida:</strong></label>
+          <input
+            type="datetime-local"
+            class="form-control"
+            formControlName="hora_salida"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div
+            *ngIf="
+              loginForm.get('hora_salida')?.invalid &&
+              loginForm.get('hora_salida')?.touched
+            "
           >
-            campo Requerido.</span
-          >
+            <span
+              *ngIf="loginForm.get('hora_salida')?.hasError('required')"
+              style="color: #ffbf29"
+            >
+              Campo requerido.</span
+              >
+          </div>
         </div>
-      </div>
-      <button
-        [disabled]="loginForm.invalid"
-        type="submit"
-        class="btn btn-primary"
-      >
-        crear registro
-      </button>
-    </form>
+        <button
+          [disabled]="loginForm.invalid"
+          type="submit"
+          class="btn btn-primary"
+        >
+        <strong>Crear registro</strong>
+        </button>
+      </form>
+    </div>
   </div>
 </div>
+</div>
+</div>
+</div>
+</section>
+<br>
+<footer>
+  <p>&copy; 2023 Empresa de Gestión de Empleados. Todos los derechos reservados.</p>
+</footer>

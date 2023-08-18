@@ -1,15 +1,18 @@
-<div >
-  <div class="row"style="">
+
+<div class="img">
+ 
+  <div class="row">
     <div class="col-md-3 mx-auto">
   <div class="card shadow" style="margin-top: 10em; width: 350px;">
-    <div class="card-body  " style="background-color: rgba(254, 246, 242, 0.509);">
-      
-      <div class="row mt-5 d-flex justify-content-between align-items-center "></div>
-      
-      <h5 class="text-center">
-        
+    <div class="card-body  " style="background-color: rgba(254, 246, 242, 0.509); font-family: 'Times New Roman', Times, serif;">
+      <div class="row mt-5 d-flex justify-content-between align-items-center ">
+         <h5 class="text-center" style="font-family: 'Times New Roman', Times, serif;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg><br>
         <i class="bi bi-car-front"></i> Login
-      </h5>
+         </h5>
           <form [formGroup]="loginForm" class="w-75 mx-auto mt-4">
             <div class="form-floating mb-3" >
               <input
@@ -47,7 +50,7 @@
               
               </div>
             </div>
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3" >
               <input
                 type="password"
                 id="password"
@@ -84,8 +87,9 @@
               </div>
             </div>
 
-            <div class="d-flex justify-content-center"> <!-- Agregamos esta div para centrar el botón -->
+            <div class="d-flex justify-content-center" style="font-family: 'Times New Roman', Times, serif;"> <!-- Agregamos esta div para centrar el botón -->
               <button
+                style="font-family: 'Times New Roman', Times, serif;"
                 type="button"
                 (click)="login()"
                 [disabled]="!loginForm.valid"
@@ -103,4 +107,5 @@
       </div>
     </div>
   </div>
+ </div>
 </div>
