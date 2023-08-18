@@ -1,13 +1,14 @@
-<div class="mt-5 w-70 mx-auto">
+<body><br>
+  <div class="mt-0 w-70 mx-auto">
   <div class="w-50 mx-auto">
-    <div class="card">
-      <div class="card-body">
+    <div class="card" style="background-color: #f4f3ee95;">
+      <div class="card-body" style="background-color: #f4f3ee95;">
     <form [formGroup]="loginForm" (submit)="crear(loginForm.value)">
       <h2 class="text-center">Resgitrar trabajador</h2>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label"> <strong>Nombres: </strong></label>
         <input
-          formControlName="nombres..."
+          formControlName="nombre"
           type="text"
           class="form-control"
           id="exampleInputEmail1"
@@ -31,7 +32,7 @@
         <input
           type="text"
           class="form-control"
-          formControlName="apellidos..."
+          formControlName="apellido"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
         />
@@ -53,7 +54,7 @@
         <label for="exampleInputEmail1" class="form-label"><strong>Dirección: </strong></label>
         <input
           type="text"
-          formControlName="dirección..."
+          formControlName="direccion"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
@@ -228,4 +229,8 @@
   </div>
 </div>
 </div>
-</div>
+</div><br><footer>
+  <p>&copy; 2023 ChalaSync Technologies. Todos los derechos reservados.</p>
+</footer>
+</body>
+

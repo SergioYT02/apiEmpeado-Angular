@@ -36,7 +36,7 @@ export class CrearRegistroComponent {
 
       }
       this.registroservice.create(value).subscribe((data:any)=>{
-        alert('registro creado')
+        
         this.router.navigate(['/ver-trabajadores'])
       })
     } else {
