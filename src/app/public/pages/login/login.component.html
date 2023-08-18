@@ -1,14 +1,17 @@
 <div >
-    
-  <div class="card shadow" style="margin-top: 3em;">
-    <div class="card-body" >
-      <div class="row mt-5 d-flex justify-content-between align-items-center">
-        <div class="col-md-4 mx-auto">
-          <h5 class="text-primary text-center">
-            <i class="bi bi-car-front"></i> Login
-          </h5>
-          <form [formGroup]="loginForm" class="w-75 mx-auto mt-5">
-            <div class="form-floating mb-3">
+  <div class="row"style="">
+    <div class="col-md-3 mx-auto">
+  <div class="card shadow" style="margin-top: 10em; width: 350px;">
+    <div class="card-body  " style="background-color: rgba(254, 246, 242, 0.509);">
+      
+      <div class="row mt-5 d-flex justify-content-between align-items-center "></div>
+      
+      <h5 class="text-center">
+        
+        <i class="bi bi-car-front"></i> Login
+      </h5>
+          <form [formGroup]="loginForm" class="w-75 mx-auto mt-4">
+            <div class="form-floating mb-3" >
               <input
                 type="email"
                 class="form-control"
@@ -26,20 +29,22 @@
               <div
                 *ngIf="!loginForm.get('email')?.errors?.['required']&&!loginForm.get('email')?.errors?.['email']"
                 class="valid-feedback"
-              >
-                Looks good!
+              ><strong>
+                Looks good!</strong>
               </div>
-              <div
+              <div 
                 *ngIf="loginForm.get('email')?.errors?.['required']"
-                class="form-text text-danger"
+                class="form-text "
               >
-                Debe llenar el campo
+              <strong> Campo Requerido</strong>
+               
               </div>
               <div
                 *ngIf="loginForm.get('email')?.errors?.['email']"
-                class="form-text text-danger"
+                class="form-text "
               >
-                Debe ser un correo valido
+              <strong>Campo Requerido</strong>
+              
               </div>
             </div>
             <div class="form-floating mb-3">
@@ -61,13 +66,15 @@
                 *ngIf="!loginForm.get('password')?.errors?.['required']&&!loginForm.get('password')?.errors?.['minlength']"
                 class="valid-feedback"
               >
-                Looks good!
+              <strong>
+                Looks good!</strong>
               </div>
               <div
                 *ngIf="loginForm.get('password')?.errors?.['required']"
-                class="form-text text-danger"
+                class="form-text"
               >
-                Contraseña requerida
+              <strong> Contraseña requerida</strong>
+               
               </div>
               <div
                 *ngIf="loginForm.get('password')?.errors?.['minlength']"
@@ -77,14 +84,19 @@
               </div>
             </div>
 
-            <button
-              type="button"
-              (click)="login()"
-              [disabled]="!loginForm.valid"
-              class="btn btn-sm btn-outline-info"
-            >
-              Logearse
-            </button>
+            <div class="d-flex justify-content-center"> <!-- Agregamos esta div para centrar el botón -->
+              <button
+                type="button"
+                (click)="login()"
+                [disabled]="!loginForm.valid"
+                class="btn btn-outline-info btn-lg"
+              >
+              <strong>
+                  Iniciar Sesion
+              </strong>
+              
+              </button>
+            </div>
             
           </form>
         </div>
