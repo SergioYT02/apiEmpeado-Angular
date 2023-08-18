@@ -8,10 +8,18 @@ import { PrivateRoutingModule } from './private-routing.module';
 
 import { PrivateComponent } from './private.component';
 import { CoreModule } from '../core/core.module';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { CrearTrabajadorComponent } from './pages/crear-trabajador/crear-trabajador.component';
+import { CrearRegistroComponent } from './pages/crear-registro/crear-registro.component';
+import { VerTrabajadoresComponent } from './pages/ver-trabajadores/ver-trabajadores.component';
 @NgModule({
   declarations: [
     HomeComponent,
     PrivateComponent,
+    PerfilComponent,
+    CrearTrabajadorComponent,
+    CrearRegistroComponent,
+    VerTrabajadoresComponent
     
   ],
   imports: [

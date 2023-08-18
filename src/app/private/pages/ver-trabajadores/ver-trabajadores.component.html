@@ -1,1 +1,51 @@
-<p>ver-trabajadores works!</p>
+<div class="w-75 mx-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre y apellidos</th>
+        <th scope="col">Nombre puesto</th>
+        <th scope="col">Salario</th>
+        <th scope="col" class="text-center">Registros</th>
+     
+      </tr>
+    </thead>
+    <tbody *ngIf="trabajadores">
+      <tr *ngFor="let trabajador of trabajadores" class="text-center">
+        <th scope="row">{{ trabajador.id }}</th>
+        <td>
+          {{ trabajador.user.nombre | titlecase
+          }} {{ trabajador.user.apellido | titlecase }}
+        </td>
+        <td>
+          {{ trabajador.puesto.puesto | titlecase }}
+        </td>
+        <td>{{ trabajador.puesto.salario | currency }}</td>
+        <table  class="table" >
+            <thead>
+                <th scope="col">Hora Entrada</th>
+                <th scope="col">Hora Salida</th>
+                <th scope="col">Hora trabajadas</th>
+                <th scope="col">Hora extras</th>
+            </thead>
+            <tbody *ngIf="trabajador.asistencia_registros.length>0">
+                <tr *ngFor="let trabajador of trabajador.asistencia_registros" class="text-center">
+                    <td>
+                        {{trabajador.hora_entrada|date}}
+                    </td>
+                    <td>
+                        {{trabajador.hora_salida|date}}
+                    </td>
+                    <td>
+                        {{trabajador.horas_trabajadas[0].horas_trabajadas}}
+                    </td>
+                    <td>
+                        {{trabajador.horas_trabajadas[0].horas_extras}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </tr>
+    </tbody>
+  </table>
+</div>

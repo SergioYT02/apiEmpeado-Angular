@@ -8,8 +8,12 @@ import { AuthService } from 'src/app/public/services/auth.service';
   styleUrls: ['./perfil.component.scss']
 })
 export class PerfilComponent {
+  user!:any
   constructor(private authservice:AuthService,private router:Router){
-  
+  this.authservice.userInformation().subscribe((data)=>{
+    console.log(data);
+    this.user=data.user;
+  })   
   }
   logout(){
     this.authservice.logout().subscribe(data=>{

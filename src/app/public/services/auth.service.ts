@@ -14,7 +14,7 @@ export class AuthService {
   }
  
   userInformation(): Observable<any> {
-    return this.http.get<any>(this.api + 'user-profile');
+    return this.http.get<any>(this.api + 'user-info');
   }
   logout() {
     return this.http.get(this.api + 'auth/logout', );
