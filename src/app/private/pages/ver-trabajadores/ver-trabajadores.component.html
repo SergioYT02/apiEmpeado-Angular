@@ -1,4 +1,10 @@
 <div class="w-75 mx-auto">
+    <div *ngIf="trabajadores.length>0">
+        <input class="form-control" type="search" [(ngModel)]="term" placeholder="Buscar" placeholder="Buscar por nombre o apellido o puesto">
+        <div class="btn-search">
+          <i class="input-icon uil uil-search-alt"></i>
+        </div>
+      </div>
   <table class="table">
     <thead>
       <tr>
@@ -10,8 +16,8 @@
      
       </tr>
     </thead>
-    <tbody *ngIf="trabajadores">
-      <tr *ngFor="let trabajador of trabajadores" class="text-center">
+    <tbody *ngIf="trabajadores.length>0">
+      <tr *ngFor="let trabajador of trabajadores|filter:term" class="text-center">
         <th scope="row">{{ trabajador.id }}</th>
         <td>
           {{ trabajador.user.nombre | titlecase
@@ -31,10 +37,47 @@
             <tbody *ngIf="trabajador.asistencia_registros.length>0">
                 <tr *ngFor="let trabajador of trabajador.asistencia_registros" class="text-center">
                     <td>
-                        {{trabajador.hora_entrada|date}}
+                        {{trabajador.hora_entrada}}
                     </td>
                     <td>
-                        {{trabajador.hora_salida|date}}
+                        {{trabajador.hora_salida}}
+                    </td>
+                    <td>
+                        {{trabajador.horas_trabajadas[0].horas_trabajadas}}
+                    </td>
+                    <td>
+                        {{trabajador.horas_trabajadas[0].horas_extras}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </tr>
+    </tbody>
+    <tbody *ngIf="trabajadores.id">
+      <tr >
+        <th scope="row">{{ trabajadores.id }}</th>
+        <td>
+          {{ trabajadores.nombre | titlecase
+          }} {{ trabajadores.apellido | titlecase }}
+        </td>
+        <td>
+          {{ trabajadores.empleados.puesto.puesto | titlecase }}
+        </td>
+        <td>{{ trabajadores.empleados.puesto.salario | currency }}</td>
+        <table  class="table" >
+            <thead>
+                <th scope="col">Hora Entrada</th>
+                <th scope="col">Hora Salida</th>
+                <th scope="col">Hora trabajadas</th>
+                <th scope="col">Hora extras</th>
+            </thead>
+            <tbody *ngIf="trabajadores.empleados.asistencia_registros.length>0">
+                <tr *ngFor="let trabajador of trabajadores.empleados.asistencia_registros" class="text-center">
+                    <td>
+                        {{trabajador.hora_entrada}}
+                    </td>
+                    <td>
+                        {{trabajador.hora_salida}}
                     </td>
                     <td>
                         {{trabajador.horas_trabajadas[0].horas_trabajadas}}

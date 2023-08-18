@@ -12,6 +12,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { CrearTrabajadorComponent } from './pages/crear-trabajador/crear-trabajador.component';
 import { CrearRegistroComponent } from './pages/crear-registro/crear-registro.component';
 import { VerTrabajadoresComponent } from './pages/ver-trabajadores/ver-trabajadores.component';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -19,7 +20,8 @@ import { VerTrabajadoresComponent } from './pages/ver-trabajadores/ver-trabajado
     PerfilComponent,
     CrearTrabajadorComponent,
     CrearRegistroComponent,
-    VerTrabajadoresComponent
+    VerTrabajadoresComponent,
+    FilterPipe
     
   ],
   imports: [
@@ -29,7 +31,8 @@ import { VerTrabajadoresComponent } from './pages/ver-trabajadores/ver-trabajado
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
-    CoreModule
-  ]
+    CoreModule,
+  ],
+  providers:[]
 })
 export class PrivateModule { }

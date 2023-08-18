@@ -15,7 +15,7 @@ import { CargarInterceptor } from './core/shared/interceptors/cargar.interceptor
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [
     {

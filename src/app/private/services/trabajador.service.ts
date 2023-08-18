@@ -17,5 +17,8 @@ export class Trabajadorservice {
   obtenerEmpleadoDatos(){
     return this.http.get(`${this.api}empleados`)
   }
+  obtenerInformationTotal(){
+    return this.http.get(`${this.api}user-information-total`)
 
+  }
 }

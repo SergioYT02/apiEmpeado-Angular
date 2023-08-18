@@ -12,7 +12,7 @@ export class NavbarComponent {
     this.authsErvice.userInformation().subscribe((data)=>{
       console.log(data.user);
       this.user=data.user;
-      this.authsErvice.setRol(data.user.rol.nombre_del_rol)
+      this.authsErvice.setRol(data.user.rol.nombre_del_rol) 
     })
   }
 }
